@@ -1,0 +1,120 @@
+<style>
+    form {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #333;
+      margin: 20px auto;
+      max-width: 600px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  
+    label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+  
+    input[type="text"],
+    input[type="number"],
+    input[type="tel"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    .inline {
+        
+    }
+  
+    input[type="checkbox"] {
+      margin-right: 10px;
+    }
+  
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
+    input[type="submit"]:hover {
+      background-color: #3e8e41;
+    }
+  </style>
+  <script>
+    function getHobbies() {
+        var hobbies = [];
+        var checkboxes = document.querySelectorAll('input[type=checkbox]:checked');
+        for (var i = 0; i < checkboxes.length; i++) {
+            hobbies.push(checkboxes[i].value);
+        }
+        return hobbies.join(', ');
+    }
+    function makeAlert() {
+        alert('Nama Lengkap: ' + document.getElementById('full_name').value + 
+        '\nTempat Tanggal Lahir: ' + document.getElementById('birth_place').value + 
+        ', ' + document.getElementById('birth_date').value + 
+        '/' + document.getElementById('birth_month').value + 
+        '/' + document.getElementById('birth_year').value + 
+        '\nAlamat: ' + document.getElementById('address').value + 
+        '\nNo. Telp/HP: ' + document.getElementById('phone').value + 
+        '\nJenis Kelamin: ' + document.getElementById('gender').value + 
+        '\nAgama: ' + document.getElementById('religion').value + 
+        '\nHobi: ' + getHobbies()); 
+        return true;
+    }
+  </script>
+<form onsubmit="makeAlert()">
+    <h1>Form Data Diri</h1>
+    <label for="full_name">Nama Lengkap:</label>
+    <input type="text" id="full_name" name="full_name"><br><br>
+  
+    <label for="birth_date">Tempat anggal Lahir:</label>
+    <input type="text" id="birth_place" name="birth_place">
+    <input type="number" id="birth_date" name="birth_date" value="30">
+    <input type="number" id="birth_month" name="birth_month" value="12">
+    <input type="number" id="birth_year" name="birth_year" value="1990"><br><br>
+  
+    <label for="address">Alamat:</label>
+    <input type="text" id="address" name="address"><br><br>
+  
+    <label for="phone">No. Tel/HP:</label>
+    <input type="tel" id="phone" name="phone"><br><br>
+  
+    <label for="gender">Jenis Kelamin:</label>
+    <select id="gender" name="gender">
+      <option value="male">Laki Laki</option>
+      <option value="female">Perempuan</option>
+    </select><br><br>
+  
+    <label for="religion">Agama:</label>
+    <select id="religion" name="religion">
+        <option value="islam">Islam</option>
+        <option value="kristen">Kristen</option>
+        <option value="hindu">Hindu</option>
+        <option value="budha">Budha</option>
+        <option value="other">Lainnya</option>
+    </select><br><br>
+  
+    <label for="hobbies">Hobi:</label><br>
+    <input type="checkbox" id="hobby1" name="hobby1" value="Baca Buku">
+    <label for="hobby1">Baca Buku</label><br>
+    <input type="checkbox" id="hobby2" name="hobby2" value="Olah Raga">
+    <label for="hobby2">Olah Raga</label><br>
+    <input type="checkbox" id="hobby3" name="hobby3" value="Main Game">
+    <label for="hobby3">Main Game</label><br>
+    <input type="checkbox" id="hobby4" name="hobby4" value="Hiking">
+    <label for="hobby4">Hiking</label><br><br>
+  
+    <input type="submit" value="Submit">
+  </form>
+  
